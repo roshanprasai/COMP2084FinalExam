@@ -1,21 +1,23 @@
-﻿using DotNetDrinksWebUI.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
+using DotNetDrinks.Data;
+using DotNetDrinks.Models;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
+using DotNetDrinksWebUI.Data;
+using DotNetDrinksWebUI.Models;
 
-namespace DotNetDrinksWebUI.Controllers
+namespace DotNetDrinks.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -25,8 +27,13 @@ namespace DotNetDrinksWebUI.Controllers
 
         public IActionResult Privacy()
         {
-            // When testing view results, make sure to specify view name
-            return View("Privacy");
+            return View();
+        }
+
+        // ✅ Step 2 - Support page
+        public IActionResult Support()
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
