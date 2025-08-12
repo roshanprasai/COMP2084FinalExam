@@ -24,4 +24,10 @@
 		<PackageReference Include="Stripe.net" Version="48.4.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Controllers\API\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Controllers\API\" />
+	</ItemGroup>
 </Project>
