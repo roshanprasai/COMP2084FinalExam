@@ -76,6 +76,7 @@
             <th>Product</th>
             <th class="text-right">Quantity</th>
             <th class="text-right">Price</th>
+            <th class="text-end">Total</th>  @* New Total header *@
         </tr>
     </thead>
     <tbody>
@@ -90,6 +91,9 @@
                 <td>@item.Product.Name</td>
                 <td class="text-right">@item.Quantity</td>
                 <td class="text-right">@item.Price.ToString("C")</td>
+                <td class="text-end">
+                    @(item.Quantity * item.Product.Price).ToString("C")  @* Line-item total *@
+                </td>
             </tr>
         }
     </tbody>
